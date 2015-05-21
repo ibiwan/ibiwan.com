@@ -3,62 +3,122 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Starter Template - Materialize</title>
+  <title>Ibi-Wan Kentobi</title>
 
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
 <body>
-  <nav class="grey" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
-      <ul class="nav-desktop">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+  <!-- <div class="navbar-fixed"> -->
+    <nav class="grey" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">
+          <img src="http://en.gravatar.com/userimage/46035089/d86f9421280aac68952e88ddb7461729.png" height="64" />
+        </a>
+        <ul class="nav-desktop">
+          <li><a href="#code">Coding</a></li>
+          <li><a href="#math">Math&amp;Science</a></li>
+          <li><a href="#funny">Funny Stuff</a></li>
+          <li><a href="#family">Family</a></li>
+          <li><a href="#work">Jobs</a></li>
+          <li><a href="#files">File Share</a></li>
+        </ul>
 
-      <!-- placeholder to build mobile nav button and bar -->
-      <ul id="nav-mobile"></ul>
+        <!-- placeholder to build mobile nav button and bar -->
+        <ul id="nav-mobile"></ul>
 
-      <!-- button-collapse class is dual-purpose: hides on non-desktop, and is target for sideNav js wiring -->
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    </div>
-  </nav>
+        <!-- button-collapse class is dual-purpose: hides on non-desktop, and is target for sideNav js wiring -->
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </nav>
+
+  <!-- </div> -->
 
   <header class="container">
     <div>
-      <h1>Starter Template</h1>
+      <h1>Jeremy "Ibi-Wan" Kent</h1>
     </div>
     <div>
-      <h5>A modern responsive front-end framework based on Material Design</h5>
+      <h5>Programmer, Teacher, Nerd, Dad</h5>
     </div>
-    <div>
+<!--     <div>
       <a href="http://materializecss.com/getting-started.html" id="download-button" class="action-button grey">Get Started</a>
     </div>
-  </header>
+ -->
+ </header>
 
   <main class="container"> <!-- "container" class stays in html so default layout is close to final -->
-    <article>
-      <h2><i class="mdi-image-flash-on"></i></h2>
-      <h5>Speeds up development</h5>
 
-      <p>We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-    </article>
+    <section id="code">
+      <h3>Coding -- Projects, References, Opinions</h3>
+      <article>
+        <h2><i class="mdi-image-image-aspect-ratio"></i></h2>
+        <h5>coding references and books go here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+      <article>
+        <h2><i class="mdi-hardware-phonelink"></i></h2>
+        <h5>coding projects go here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+    </section>
 
-    <article>
-      <h2><i class="mdi-social-group"></i></h2>
-      <h5>User Experience Focused</h5>
+    <section id="math">
+      <h3>Math &amp; Science Coolness and Tutoring Aids</h3>
+      <article>
+        <h2><i class="mdi-content-clear"></i></h2>
+        <h5>stuff about math and science goes here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+    </section>
 
-      <p>By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-    </article>
+    <section id="funny">
+      <h3>Funny Stuffs</h3>
+      <article>
+        <h2><i class="mdi-image-tag-faces"></i></h2>
+        <h5>funny stuff goes here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+      <article>
+        <h2><i class="mdi-communication-forum"></i></h2>
+        <h5>maybe some web comic links/reviews</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+    </section>
 
-    <article>
-      <h2><i class="mdi-action-settings"></i></h2>
-      <h5>Easy to work with</h5>
+    <section id="family">
+      <h3>MCI Friends &amp; Family Plan</h3>
+      <article>
+        <h2><i class="mdi-social-people"></i></h2>
+        <h5>photos and friend links go here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+    </section>
 
-      <p>We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-    </article>
-    <br><br>
+    <section id="work">
+      <h3>The Serious Side of Jeremiah</h3>
+      <article>
+        <h2><i class="mdi-editor-attach-file"></i></h2>
+        <h5>resume links here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+      <article>
+        <h2><i class="mdi-editor-attach-money"></i></h2>
+        <h5>job history goes here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+    </section>
+
+    <section id="files">
+      <h3>I Wish To Share These With You</h3>
+      <article>
+        <h2><i class="mdi-file-cloud-download"></i></h2>
+        <h5>publicly-shared files might show up here</h5>
+        <p>lorem ipsum etc</p>
+      </article>
+    </section>
+
   </main>
 
   <footer class="grey">
@@ -88,7 +148,8 @@
       </article>
    </section>
     <section class="footer-copyright container"> <!-- built-in SEMANTIC materialize.css class, wooo -->
-      Made by <a href="http://materializecss.com">Materialize</a>
+      <div>Made by <a href="http://materializecss.com">Materialize</a></div>
+      <div>&copy;2015 Jeremiah Kent</div>
     </section>
   </footer>
 

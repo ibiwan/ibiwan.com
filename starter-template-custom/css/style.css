@@ -6,7 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
-/* narrow text columns slightly*/
-.icon-block {
-  padding: 0 15px;
+body header {
+    margin-top: 3em !important;
+    margin-bottom: 5em !important;
 }

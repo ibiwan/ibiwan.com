@@ -49,7 +49,7 @@ var substitutions = [
         styling:  ['row', ],
     },
     {
-        semantic: ['main h1', 'main h2', 'main h3', ],
+        semantic: ['main h1', 'main h2:not(:has(i))', 'main h3', ],
         styling:  [primary_text_color, 'center', ],
     },
     {

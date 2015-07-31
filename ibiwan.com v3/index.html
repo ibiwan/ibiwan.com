@@ -18,7 +18,7 @@
         </a>
         <ul class="nav-desktop">
           <li><a href="#code">Coding</a></li>
-          <li><a href="#math">Math&amp;Science</a></li>
+          <li><a href="#math">Math &amp; Science</a></li>
           <li><a href="#funny">Funny Stuff</a></li>
           <li><a href="#family">Family</a></li>
           <li><a href="#work">Jobs</a></li>
@@ -42,119 +42,24 @@
     <div>
       <h5>Programmer, Teacher, Nerd, Dad</h5>
     </div>
-<!--     <div>
-      <a href="http://materializecss.com/getting-started.html" id="download-button" class="action-button grey">Get Started</a>
-    </div>
- -->
  </header>
 
-  <main class="container"> <!-- "container" class stays in html so default layout is close to final -->
+  <main class="container" id="scroller"> <!-- "container" class stays in html so default layout is close to final -->
 
-    <section id="code">
-      <h3>Coding -- Projects, References, Opinions</h3>
-      <article>
-        <h2><i class="mdi-image-image-aspect-ratio"></i></h2>
-        <h5>coding references and books go here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-      <article>
-        <h2><i class="mdi-hardware-phonelink"></i></h2>
-        <h5>coding projects go here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-    </section>
-
-    <section id="math">
-      <h3>Math &amp; Science Coolness and Tutoring Aids</h3>
-      <article>
-        <h2><i class="mdi-content-clear"></i></h2>
-        <h5>stuff about math and science goes here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-    </section>
-
-    <section id="funny">
-      <h3>Funny Stuffs</h3>
-      <article>
-        <h2><i class="mdi-image-tag-faces"></i></h2>
-        <h5>funny stuff goes here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-      <article>
-        <h2><i class="mdi-communication-forum"></i></h2>
-        <h5>maybe some web comic links/reviews</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-    </section>
-
-    <section id="family">
-      <h3>MCI Friends &amp; Family Plan</h3>
-      <article>
-        <h2><i class="mdi-social-people"></i></h2>
-        <h5>photos and friend links go here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-    </section>
-
-    <section id="work">
-      <h3>The Serious Side of Jeremiah</h3>
-      <article>
-        <h2><i class="mdi-editor-attach-file"></i></h2>
-        <h5>resume links here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-      <article>
-        <h2><i class="mdi-editor-attach-money"></i></h2>
-        <h5>job history goes here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-    </section>
-
-    <section id="files">
-      <h3>I Wish To Share These With You</h3>
-      <article>
-        <h2><i class="mdi-file-cloud-download"></i></h2>
-        <h5>publicly-shared files might show up here</h5>
-        <p>lorem ipsum etc</p>
-      </article>
-    </section>
+    <div id="code"   class="late-load" data-page="content-code.html"></div>
+    <div id="math"   class="late-load" data-page="content-math.html"></div>
+    <div id="funny"  class="late-load" data-page="content-funny.html"></div>
+    <div id="family" class="late-load" data-page="content-family.html"></div>
+    <div id="work"   class="late-load" data-page="content-work.html"></div>
+    <div id="files"  class="late-load" data-page="content-files.html"></div>
 
   </main>
 
-  <footer class="grey">
-    <section class="container">
-      <article>
-        <h5>Company Bio</h5>
-        <p>We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-      </article>
-      <article class="linklist">
-        <h5>Settings</h5>
-        <ul>
-          <li><a href="#!">Link 1</a></li>
-          <li><a href="#!">Link 2</a></li>
-          <li><a href="#!">Link 3</a></li>
-          <li><a href="#!">Link 4</a></li>
-        </ul>
-      </article>
-      <article class="linklist">
-        <h5>Connect</h5>
-        <ul>
-          <li><a href="#!">Link 1</a></li>
-          <li><a href="#!">Link 2</a></li>
-          <li><a href="#!">Link 3</a></li>
-          <li><a href="#!">Link 4</a></li>
-        </ul>
-      </article>
-   </section>
-    <section class="footer-copyright container"> <!-- built-in SEMANTIC materialize.css class, wooo -->
-      <div>Made by <a href="http://materializecss.com">Materialize</a></div>
-      <div>&copy;2015 Jeremiah Kent</div>
-    </section>
-  </footer>
+  <!-- put footer back here when you have content you care about -->
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- <script src="js/jquery-2.1.4.min.js"></script> -->
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 

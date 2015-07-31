@@ -24,7 +24,7 @@ var substitutions = [
     },
     {
         semantic: ['nav ul.nav-desktop', ],
-        styling:  ['right', 'hide-on-med-and-down', ],
+        styling:  ['right', 'hide-on-med-and-down', 'list-no-dot', ],
     },
 
     {
@@ -115,6 +115,46 @@ function formatBySemantics($context){
     }
 }
 
+function isElementInViewport (el) {
+    //special bonus for those using jQuery
+    if (typeof jQuery === "function" && el instanceof jQuery) {
+        el = el[0];
+    }
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top    >= 0 &&
+        rect.left   >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+        rect.right  <= (window.innerWidth  || document.documentElement.clientWidth) /*or $(window).width() */
+    );
+}
+
+var scrollLock = false;
+
+function redraw(){
+    var f = $('.late-load:first');
+    if(f.length !== 0 && !scrollLock && isElementInViewport(f))
+    {
+        scrollLock = true;
+        f.removeClass('late-load');
+        var url = f.data('page');
+        if(url){
+            $.ajax(url)
+                .done(function(data){
+                    f.replaceWith(data);
+                    formatBySemantics($('body'));
+                })
+                .always(function(){
+                    scrollLock = false;
+                    redraw();
+                })
+            ;
+        } else {
+            scrollLock = false;
+        }
+    }
+}
+
 (function($){                                          // create safe jQuery namespace
   $(function(){                                        // document.ready
 
@@ -122,6 +162,8 @@ function formatBySemantics($context){
     $('#nav-mobile').append($('.nav-desktop').html()); // copy menu items to mobile sideNav menu
 
     formatBySemantics($('body'));
+
+    $(window).on('DOMContentLoaded load resize scroll', redraw); // infinite scroll sections
 
   }); // end of document.ready
 })(jQuery); // end of jQuery namespace

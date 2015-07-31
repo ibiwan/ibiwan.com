@@ -7,6 +7,37 @@
  */
 
 body header {
-    margin-top: 3em !important;
+    margin-top:    3em !important;
     margin-bottom: 5em !important;
+}
+
+.brand-logo {
+}
+
+article .row {
+    /*padding-left:  7px;*/
+    /*padding-right: 7px;*/
+    border:solid white 7px;
+    padding-left:7px;
+    padding-right:7px;
+    /*margin:5px;*/
+}
+
+article section {
+    /*margin: 7px;*/
+    /*padding: 2px; */
+    background: #eee;
+}
+
+ol {
+}
+
+ol li {
+    /*list-style-type: decimal;*/
+    list-style-type: disc;
+    margin: 0px;
+}
+
+.list-no-dot li {
+    list-style-type: none;
 }

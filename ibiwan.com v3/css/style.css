@@ -55,7 +55,7 @@ ol li {
 }
 
 #crowdclock-box {
-    max-width: 100%;
+    /*max-width: 100%;*/
     background-image:url("http://www.crowdclock.com/img/bg.png");
 }
 
@@ -82,7 +82,12 @@ ol li {
 }
 
 .logo-box {
-    height: 48px;
+    height:       58px;
+    margin-left:  -7px;
+    margin-right: -7px;
+
+    /*margin-top: 7px;*/
+    border:5px solid rgb(160, 160, 160);
 }
 
 .logo-box img {

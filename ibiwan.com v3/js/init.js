@@ -242,5 +242,6 @@ function smoothScroll(context){
     $(window).on('DOMContentLoaded load resize scroll', redraw); // infinite scroll sections
 
     $('a[href*=#]').click(function() { smoothScroll(this); });
+    smoothScroll(location);
   }); // end of document.ready
 })(jQuery); // end of jQuery namespace

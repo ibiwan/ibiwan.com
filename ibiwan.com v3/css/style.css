@@ -83,6 +83,10 @@ ol li {
 }
 
 #resume-formats {
+    font-size:130%;
+}
+
+#resume-formats li:first-of-type {
     font-size:150%;
 }
 
@@ -95,4 +99,13 @@ img {
     color:rgb(150, 150, 150);
     float:right;
 }
+
+.fade:hover {
+    -webkit-filter: grayscale(0%) blur(0px);
+}
+
+.fade {
+    -webkit-filter: grayscale(80%) blur(0.5px);
+}
+
 /*<img src="http://files.fbstatic.com/images/Sisu/sprite.png"  width="50" height="50" alt="CrowdClock.com" height="100%">*/

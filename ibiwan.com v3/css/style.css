@@ -55,7 +55,6 @@ ol li {
 }
 
 #crowdclock-box {
-    height: auto;
     max-width: 100%;
     background-image:url("http://www.crowdclock.com/img/bg.png");
 }
@@ -74,8 +73,20 @@ ol li {
     background-color:rgb(255, 255, 255);
 }
 
+#cert-box {
+    background-color:rgb(255, 255, 255);
+}
+
 #irf-box {
     background-color:rgb(0, 0, 0);
+}
+
+.logo-box {
+    height: 48px;
+}
+
+.logo-box img {
+    max-height: 48px;
 }
 
 .collection {
@@ -105,7 +116,7 @@ img {
 }
 
 .fade {
-    -webkit-filter: grayscale(80%) blur(0.5px);
+    -webkit-filter: grayscale(50%) blur(0.75px);
 }
 
 /*<img src="http://files.fbstatic.com/images/Sisu/sprite.png"  width="50" height="50" alt="CrowdClock.com" height="100%">*/

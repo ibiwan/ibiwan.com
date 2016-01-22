@@ -6,9 +6,13 @@
  * Made By MaterializeCSS.com
  */
 
+ div,section,article {
+    /*border:solid black;*/
+ }
+
 body header {
     margin-top:    3em !important;
-    margin-bottom: 5em !important;
+    margin-bottom: 15em !important;
 }
 
 .brand-logo {
@@ -41,3 +45,54 @@ ol li {
 .list-no-dot li {
     list-style-type: none;
 }
+
+#ga-box {
+    background-color:rgb(19, 48, 108);
+}
+
+#istorage-box {
+    background-color:rgb(213, 31, 39);
+}
+
+#crowdclock-box {
+    height: auto;
+    max-width: 100%;
+    background-image:url("http://www.crowdclock.com/img/bg.png");
+}
+
+#fanbox-box {
+    background-color:rgb(246, 246, 246);
+}
+
+#fanbox-img {
+    background:url("http://files.fbstatic.com/images/Sisu/sprite.png") 0 0;
+    width:154px;
+    height:36px;    
+}
+
+#datagenix-box {
+    background-color:rgb(255, 255, 255);
+}
+
+#irf-box {
+    background-color:rgb(0, 0, 0);
+}
+
+.collection {
+    border:none;
+}
+
+#resume-formats {
+    font-size:150%;
+}
+
+img {
+    max-width: 100%;
+}   
+
+.collapse-hint {
+    font-size:90%;
+    color:rgb(150, 150, 150);
+    float:right;
+}
+/*<img src="http://files.fbstatic.com/images/Sisu/sprite.png"  width="50" height="50" alt="CrowdClock.com" height="100%">*/

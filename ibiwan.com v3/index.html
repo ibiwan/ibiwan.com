@@ -5,23 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>Ibi-Wan Kentobi</title>
 
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" media="screen,projection" href="css/materialize.css"/>
+  <link rel="stylesheet" type="text/css" media="screen,projection" href="css/style.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 </head>
 <body>
-  <!-- <div class="navbar-fixed"> -->
+  <div class="navbar-fixed">
     <nav class="grey" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">
+        <a href="#mytop" id="logo-container" class="brand-logo">
           <img src="http://en.gravatar.com/userimage/46035089/d86f9421280aac68952e88ddb7461729.png" height="64" />
         </a>
         <ul class="nav-desktop">
           <li><a href="#code">Coding</a></li>
+          <li><a href="#work">Employment</a></li>
           <li><a href="#math">Math &amp; Science</a></li>
           <li><a href="#funny">Funny Stuff</a></li>
           <li><a href="#family">Family</a></li>
-          <li><a href="#work">Jobs</a></li>
           <li><a href="#files">File Share</a></li>
         </ul>
 
@@ -33,8 +34,8 @@
       </div>
     </nav>
 
-  <!-- </div> -->
-
+  </div>
+  <div id="mytop"></div>
   <header class="container">
     <div>
       <h1>Jeremy "Ibi-Wan" Kent</h1>
@@ -47,10 +48,10 @@
   <main class="container" id="scroller"> <!-- "container" class stays in html so default layout is close to final -->
 
     <div id="code"   class="late-load" data-page="content-code.html"></div>
+    <div id="work"   class="late-load" data-page="content-work.html"></div>
     <div id="math"   class="late-load" data-page="content-math.html"></div>
     <div id="funny"  class="late-load" data-page="content-funny.html"></div>
     <div id="family" class="late-load" data-page="content-family.html"></div>
-    <div id="work"   class="late-load" data-page="content-work.html"></div>
     <div id="files"  class="late-load" data-page="content-files.html"></div>
 
   </main>

@@ -58,7 +58,11 @@ var substitutions = [
     },
     {
         semantic: ['main section', ],
-        styling:  ['row', ],
+        styling:  ['row'],
+    },
+    {
+        semantic: ['#code section', ],
+        styling:  ['collapseit'],
     },
     {
         semantic: ['main article', ],
@@ -101,6 +105,10 @@ var substitutions = [
         semantic: ['footer section.footer-copyright a'],
         styling:  [primary_text_color, 'text-lighten-3', ],
     },
+    {
+        semantic: ['ul.iconned'],
+        styling:  ['collection']
+    },
 ];
 
 function formatBySemantics($context){
@@ -126,12 +134,49 @@ function isElementInViewport (el) {
         rect.left   >= 0 &&
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
         rect.right  <= (window.innerWidth  || document.documentElement.clientWidth) /*or $(window).width() */
-    );
+        );
 }
 
 var scrollLock = false;
 
+function setupCollapsers(){
+    $('.collapseit').each(function(){
+        if(!$(this).hasClass('processed')) {
+            $(this).addClass('processed');
+            var data = [];
+            var elements = $(this).contents();
+
+            var collapser = elements[0].nodeType === 3 
+                ? $('<div class="collapser" />').append(elements[0])
+                : elements[0];
+
+            var collapsee = $(elements[1]).addClass('collapsee');
+            
+            $(this).html('')
+                .append(collapser)
+                .append(collapsee)
+                .append($(elements.slice(2)));
+        }
+    });
+    $('.collapser').each(function(){
+        if(!$(this).hasClass('bound')){
+            $(this).addClass('bound');                        
+
+            $(this).on('click', function(){
+                $(this).parent().find('.collapsee').toggle(400);
+                $(this).find('.collapse-hint').toggle();
+            });
+
+            $(this).append('<span class="collapse-hint shower">show</span>');
+            $(this).append('<span class="collapse-hint hider">hide</span>');
+            $(this).parent().find('.collapsee').hide();
+            $(this).parent().find('.hider').hide();
+        }
+    });
+}
+
 function redraw(){
+    setupCollapsers();
     var f = $('.late-load:first');
     if(f.length !== 0 && !scrollLock && isElementInViewport(f))
     {
@@ -140,18 +185,48 @@ function redraw(){
         var url = f.data('page');
         if(url){
             $.ajax(url)
-                .done(function(data){
-                    f.replaceWith(data);
-                    formatBySemantics($('body'));
-                })
-                .always(function(){
-                    scrollLock = false;
-                    redraw();
-                })
+            .done(function(data){
+                f.replaceWith(data);
+                formatBySemantics($('body'));
+                $('main').find('a').attr('target', '_blank');
+             })
+            .always(function(){
+                scrollLock = false;
+                redraw();
+            })
             ;
         } else {
             scrollLock = false;
         }
+    }
+}
+
+function smoothScroll(context){
+    if (location.pathname.replace(/^\//,'') == context.pathname.replace(/^\//,'') && location.hostname == context.hostname) {
+        var offset = $('.navbar-fixed').height();
+        var hash = context.hash;
+        var target = $(hash);
+        var scroll = function(){
+            var prev = $('body').scrollTop();
+            $('body').animate(
+            {
+                scrollTop: target.offset().top - offset
+            }, 
+            500, 
+            'linear', 
+            function(){  
+                target = $(hash);
+                var body = $('body').scrollTop();
+                var elmt = target.offset().top - offset;
+
+                if(Math.abs(body - elmt) > 1 && body !== prev){
+                    prev = body;
+                    scroll(target);
+                }
+            });                                
+        };
+        scroll();   
+        return false;
     }
 }
 
@@ -162,8 +237,10 @@ function redraw(){
     $('#nav-mobile').append($('.nav-desktop').html()); // copy menu items to mobile sideNav menu
 
     formatBySemantics($('body'));
-
+    $('main').find('a').attr('target', '_blank');
+    
     $(window).on('DOMContentLoaded load resize scroll', redraw); // infinite scroll sections
 
+    $('a[href*=#]').click(function() { smoothScroll(this); });
   }); // end of document.ready
 })(jQuery); // end of jQuery namespace

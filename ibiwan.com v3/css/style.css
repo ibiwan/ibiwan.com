@@ -86,8 +86,6 @@ ol li {
     margin-left:  -7px;
     margin-right: -7px;
     box-shadow:   2px 5px 5px gray;
-    /*margin-top: 7px;*/
-    /*border:5px solid rgb(160, 160, 160);*/
 }
 
 .logo-box img {
@@ -121,7 +119,7 @@ img {
 }
 
 .fade {
-    -webkit-filter: grayscale(50%) blur(0.75px);
+    -webkit-filter: grayscale(80%) blur(0.75px);
 }
 
 /*<img src="http://files.fbstatic.com/images/Sisu/sprite.png"  width="50" height="50" alt="CrowdClock.com" height="100%">*/

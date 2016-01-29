@@ -60,10 +60,10 @@ var substitutions = [
         semantic: ['main section', ],
         styling:  ['row'],
     },
-    {
-        semantic: ['#code section', ],
-        styling:  ['collapseit'],
-    },
+    // {
+    //     semantic: ['#code section', ],
+    //     styling:  ['collapseit'],
+    // },
     {
         semantic: ['main article', ],
         styling:  ['col', 's12', 'm4', ],
@@ -146,34 +146,35 @@ function setupCollapsers(){
             var data = [];
             var elements = $(this).contents();
 
-            var collapser = elements[0].nodeType === 3 
+            var collapser = elements[0].nodeType === 3
                 ? $('<div class="collapser" />').append(elements[0])
                 : elements[0];
 
             var collapsee = $(elements[1]).addClass('collapsee');
-            
+
             $(this).html('')
                 .append(collapser)
                 .append(collapsee)
                 .append($(elements.slice(2)));
         }
     });
-    $('.collapser').each(function(){
+    $('.summary').each(function(){
         if(!$(this).hasClass('bound')){
-            $(this).addClass('bound');                        
+            $(this).addClass('bound');
 
             $(this).on('click', function(){
-                $(this).parent().find('.collapsee').toggle(400);
+                $(this).parent().find('.details').toggle(400);
                 $(this).find('.collapse-hint').toggle();
             });
 
             $(this).append('<span class="collapse-hint shower">show</span>');
             $(this).append('<span class="collapse-hint hider">hide</span>');
-            $(this).parent().find('.collapsee').hide();
+            $(this).parent().find('.details').hide();
             $(this).parent().find('.hider').hide();
         }
     });
 }
+
 
 function redraw(){
     setupCollapsers();
@@ -184,9 +185,45 @@ function redraw(){
         f.removeClass('late-load');
         var url = f.data('page');
         if(url){
-            $.ajax(url)
+            $.ajax(url, {
+                cache: false,
+                dataType: 'text',
+            })
             .done(function(data){
-                f.replaceWith(data);
+                var content;
+                var template;
+                var dataText;
+
+                var newf = $(data);
+
+                for(i in newf){
+                    if(newf.hasOwnProperty(i)){
+                        $thing = $(newf[i])[0];
+                        if( $thing && $thing.id && $thing.id === 'handlebar-template' ){
+                            template = $($thing).html();
+                        }
+                        if( $thing && $thing.id && $thing.id === 'handlebar-data' ){
+                            dataText = $($thing).html();
+                        }
+                        if( $thing.nodeName && ($thing.nodeName.toUpperCase() === 'SECTION') ) {
+                            content = $thing;
+                        }
+                    }
+                }
+
+                f.replaceWith(content);
+
+                if(dataText && template){
+                    var ctemplate = Handlebars.compile(template);
+                    var datas = JSON.parse(dataText);
+                    console.log(datas);
+                    // for(i in datas){
+                        // var data = datas[i];
+                        var html = ctemplate(datas);
+                        $("section:first").append(html);
+                    // }
+                }
+
                 formatBySemantics($('body'));
                 $('main').find('a').attr('target', '_blank');
              })
@@ -206,15 +243,17 @@ function smoothScroll(context){
         var offset = $('.navbar-fixed').height();
         var hash = context.hash;
         var target = $(hash);
+
         var scroll = function(){
+            if(target === []){return}
             var prev = $('body').scrollTop();
             $('body').animate(
             {
                 scrollTop: target.offset().top - offset
-            }, 
-            500, 
-            'linear', 
-            function(){  
+            },
+            500,
+            'linear',
+            function(){
                 target = $(hash);
                 var body = $('body').scrollTop();
                 var elmt = target.offset().top - offset;
@@ -223,9 +262,12 @@ function smoothScroll(context){
                     prev = body;
                     scroll(target);
                 }
-            });                                
+            });
         };
-        scroll();   
+
+        if(target.length){
+            scroll();
+        }
         return false;
     }
 }
@@ -238,7 +280,7 @@ function smoothScroll(context){
 
     formatBySemantics($('body'));
     $('main').find('a').attr('target', '_blank');
-    
+
     $(window).on('DOMContentLoaded load resize scroll', redraw); // infinite scroll sections
 
     $('a[href*=#]').click(function() { smoothScroll(this); });

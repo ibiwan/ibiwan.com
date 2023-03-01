@@ -1,0 +1,329 @@
+<html>
+
+<head>
+  <title>kelsey lick &gt; tutorials &gt; linux reference &gt; makefiles</title>
+</head>
+
+
+<body bgcolor="#000000" text="#FFFFFF" link="#33CCFF" vlink="#33CCFF" alink="#33CCFF" leftmargin="3" topmargin="0"
+  marginwidth="3" marginheight="0" bgproperties="fixed">
+
+  <table width="100%" cellpadding="6" cellspacing="0" border="0" height="2771">
+    <tr>
+      <td height="2636">
+        <font color="#FFFFFF" size="4" face="Arial, Helvetica, sans-serif">Splitting
+          Your Program into Separate Files </font>
+        <p>
+          <font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif"> When
+            writing programs, splitting the code into separate files makes it more
+            readable and easier to organize. <br>
+            <br>
+            The most common way to split a program with one class is into 3 files:
+          </font>
+        <ol>
+          <li>
+            <font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">A
+              main program file </font>
+          <li>
+            <font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">A
+              class header file </font>
+          <li>
+            <font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">A
+              file containing the source code of your class functions </font>
+            <font color="#FFFFFF"><br>
+              <br>
+            </font>
+        </ol>
+        <table width="80%" cellpadding="15" cellspacing="0" border="1" bordercolorlight="#33CCFF"
+          bordercolordark="#33CCFF">
+          <tr>
+            <td>
+              <font size="2" face="Arial, Helvetica, sans-serif">
+                <font color="#FFFFFF">In
+                  the main class program file (often named <b>main.cc</b>), you should
+                  have your main functions: </font>
+              </font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <font color="green" size="2" face="Arial, Helvetica, sans-serif">
+                <font color="#FFFFFF">//main.cc </font>
+              </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                <br>
+                #include(s) . . . <br>
+                #include "classname.h"
+              </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                <br>
+                void main() <br>
+                { <br>
+                <br>
+                &nbsp;&nbsp;&nbsp; // . . . your code . . . <br>
+                <br>
+                }
+              </font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <font size="2" face="Arial, Helvetica, sans-serif"><b>
+                  <font color="#FFFFFF">main.cc</font>
+                </b>
+                <font color="#FFFFFF">
+                  must include the class header file name within double quotations because
+                  it is located in the directory with <b>main.cc</b> </font>
+              </font>
+            </td>
+          </tr>
+        </table>
+        <font color="#FFFFFF"><br>
+          <br>
+        </font>
+        <table width="80%" cellpadding="15" cellspacing="0" border="1" bordercolorlight="#33CCFF"
+          bordercolordark="#33CCFF">
+          <tr>
+            <td>
+              <font size="2" face="Arial, Helvetica, sans-serif">
+                <font color="#FFFFFF">In
+                  the class header file (<b>classname.h</b>) the class and its members
+                  are declared</font>.
+              </font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <font color="#FFFFFF" size="2" face="Arial, Helvetica, sans-serif">
+                //classname.h </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                <br>
+                #include(s) . . . <br>
+              </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                <br>
+                class class_name<br>
+                { <br>
+                <br>
+                private:
+              </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                &nbsp;&nbsp;&nbsp;int private_variable_1(); <br>
+                &nbsp;&nbsp;&nbsp;char private_variable_2(); <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;void private_function() <br>
+                <br>
+                <br>
+                public:<br>
+                &nbsp;&nbsp;&nbsp;int public_variable; <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;void public_function_1(); <br>
+                &nbsp;&nbsp;&nbsp;int public_function_2(); <br>
+                <br>
+                };
+              </font>
+            </td>
+          </tr>
+        </table>
+        <font color="#FFFFFF"><br>
+          <br>
+        </font>
+        <table width="80%" cellpadding="15" cellspacing="0" border="1" bordercolorlight="#33CCFF"
+          bordercolordark="#33CCFF">
+          <tr>
+            <td>
+              <font size="2" face="Arial, Helvetica, sans-serif">
+                <font color="#FFFFFF">Thirdly,
+                  the source code of the class functions are located here (<b>classname.cc</b>).
+                </font>
+              </font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <font color="green" size="2" face="Arial, Helvetica, sans-serif">
+                <font color="#FFFFFF">//classname.cc </font>
+              </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                <br>
+                #include(s) . . . <br>
+                #include "classname.h"
+              </font>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+                <br>
+                void class_name::private_function()<br>
+                { <br>
+                <br>
+                &nbsp;&nbsp;&nbsp; . . . <br>
+                &nbsp;&nbsp;&nbsp; . . . <br>
+                &nbsp;&nbsp;&nbsp; . . . <br>
+                <br>
+                } <br>
+                <br>
+                void class_name::public_function_1()<br>
+                { <br>
+                <br>
+                &nbsp;&nbsp;&nbsp; . . . <br>
+                &nbsp;&nbsp;&nbsp; . . . <br>
+                &nbsp;&nbsp;&nbsp; . . . <br>
+                <br>
+                } <br>
+                <br>
+                &nbsp;&nbsp;&nbsp;// . . . etc . . .
+              </font>
+            </td>
+          </tr>
+        </table>
+        <font color="#FFFFFF"><br>
+          <br>
+          <font size="2" face="Arial, Helvetica, sans-serif">Now that the code is
+            split intro three files; how is compilation supposed to be done? </font>
+        </font>
+        <h3 align="center">
+          <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><i>
+              <font size="4">Makefiles!</font>
+            </i></font>
+        </h3>
+        <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">This
+          is a fourth file that tells the compiler which files to compile with what.
+          Two examples are below: <br>
+        </font>
+        <font color="#FFFFFF"><br>
+        </font>
+        <table width="80%" cellpadding="15" cellspacing="0" border="1" bordercolorlight="#33CCFF"
+          bordercolordark="#33CCFF">
+          <tr>
+            <td>
+              <h3 align="center">
+                <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">A
+                  Simple MakeFile</font>
+              </h3>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">An
+                example of a makefile (named <b>makefile</b>) which has the following
+                3 files: </font>
+              <ol>
+                <li>
+                  <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">main.cc
+                  </font>
+                <li>
+                  <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">classname.cc
+                  </font>
+                <li>
+                  <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">classname.h
+                  </font>
+              </ol>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">The
+                executable will be called <b>main</b>. </font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">
+                main: main.o classname.o <br>
+                &nbsp;&nbsp;&nbsp; g++ -g -o main main.o classname.o <br>
+                <br>
+                main.o: main.cc classname.h <br>
+                &nbsp;&nbsp;&nbsp; g++ -g -Wall -c main.cc <br>
+                <br>
+                classname.o: classname.cc classname.h <br>
+                &nbsp;&nbsp;&nbsp; g++ -g -Wall -c classname.cc <br>
+                <br>
+              </font>
+            </td>
+          </tr>
+        </table>
+        <font color="#FFFFFF"><br>
+          <br>
+        </font>
+        <table width="80%" cellpadding="15" cellspacing="0" border="1" bordercolorlight="#33CCFF"
+          bordercolordark="#33CCFF">
+          <tr>
+            <td>
+              <h3 align="center">
+                <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">Generalized
+                  MakeFile</font>
+              </h3>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">A
+                different example of a makefile (named <b>makefile</b>) which has
+                the following 3 files: </font>
+              <ol>
+                <li>
+                  <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">main.cc
+                  </font>
+                <li>
+                  <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">list.cc
+                  </font>
+                <li>
+                  <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">list.h
+                  </font>
+              </ol>
+              <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">The
+                executable will be called <b>mylist</b>. </font>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <font size="2" face="Arial, Helvetica, sans-serif">
+                <font color="#FFFFFF">OBJS
+                  = list.o main.o <br>
+                  CC = g++ &nbsp;&nbsp; # C++ Compiler <br>
+                  CFLAGS = -g -Wall &nbsp;&nbsp; # -g : in order to use debug <br>
+                  <br>
+                  mylist: $(OBJS) <br>
+                  &nbsp;&nbsp;&nbsp; $(CC) $(CFLAGS) -o mylist $(OBJS) <br>
+                  <br>
+                  list.o: list.h list.cc <br>
+                  &nbsp;&nbsp;&nbsp; $(CC) $(CFLAGS) -c list.cc <br>
+                  <br>
+                  main.o: list.h main.cc <br>
+                  &nbsp;&nbsp;&nbsp; $(CC) $(CFLAGS) -c main.cc <br>
+                  <br>
+                  clean: <br>
+                  &nbsp;&nbsp;&nbsp; rm -f mylist *.o core
+                </font><br>
+                <br>
+              </font>
+            </td>
+          </tr>
+        </table>
+        <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF"><br>
+          To compile, type "<b>make</b>". </font>
+        <h3>
+          <font size="2" face="Arial, Helvetica, sans-serif" color="#FFFFFF">IMPORTANT
+            NOTE: Each indented line must be indented with a TAB.</font>
+        </h3>
+
+        <br><br>
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+  <br><br>
+
+
+</body>
+
+</html>
+<!--
+     FILE ARCHIVED ON 00:22:38 Jan 06, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:34:04 Feb 28, 2023.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 94.783 (11)
+  exclusion.robots: 0.287
+  exclusion.robots.policy: 0.27
+  cdx.remote: 0.085
+  esindex: 0.011
+  LoadShardBlock: 59.05 (3)
+  PetaboxLoader3.datanode: 100.23 (4)
+  load_resource: 174.547
+  PetaboxLoader3.resolve: 111.899
+-->

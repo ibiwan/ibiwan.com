@@ -148,3 +148,10 @@ img {
 }
 
 /*<img src="http://files.fbstatic.com/images/Sisu/sprite.png"  width="50" height="50" alt="CrowdClock.com" height="100%">*/
+
+#logo-container {
+    height: 80px;
+    width: 80px;
+    background: white;
+    border-radius: 50%;
+}

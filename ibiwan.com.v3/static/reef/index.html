@@ -1,39 +1,551 @@
 <html>
-  <body>
-    <article>
-      <h3>Invasion of Piracy</h3>
-      <ul>
 
-          <li><a href="01 Music of Tortuga.m4a">01 Music of Tortuga.m4a</a></li>
-          <li><a href="02 To Glory We Steer.m4a">02 To Glory We Steer.m4a</a></li>
-          <li><a href="03 Irish Rover.m4a">03 Irish Rover.m4a</a></li>
-          <li><a href="04 Cruiscan Lan.m4a">04 Cruiscan Lan.m4a</a></li>
-          <li><a href="05 Parson of the Pub.m4a">05 Parson of the Pub.m4a</a></li>
-          <li><a href="06 Cutthroat Life.m4a">06 Cutthroat Life.m4a</a></li>
-          <li><a href="07 Samhain Sun.m4a">07 Samhain Sun.m4a</a></li>
-          <li><a href="08 Mulcahey's Pub.m4a">08 Mulcahey's Pub.m4a</a></li>
-          <li><a href="09 Dark Lady.m4a">09 Dark Lady.m4a</a></li>
-          <li><a href="10 Sailorman's Way.m4a">10 Sailorman's Way.m4a</a></li>
-          <li><a href="11 Ned the Bard.m4a">11 Ned the Bard.m4a</a></li>
-          <li><a href="12 Parting Glass _ Nova Scotia.m4a">12 Parting Glass _ Nova Scotia.m4a</a></li>
-        </ul>
-    </article>
-    <article>
-      <h3>Beat to Quarters!</h3>
-          <ul>
-            <li><a href="01 Haul Away Joe!.m4a">01 Haul Away Joe!.m4a</a></li>
-            <li><a href="02 Filler Up.m4a">02 Filler Up.m4a</a></li>
-            <li><a href="03 Follow The Money.m4a">03 Follow The Money.m4a</a></li>
-            <li><a href="04 Leprechaun's Gold.m4a">04 Leprechaun's Gold.m4a</a></li>
-            <li><a href="05 Cruising Round Yarmouth.m4a">05 Cruising Round Yarmouth.m4a</a></li>
-            <li><a href="06 Sailor's Diet.m4a">06 Sailor's Diet.m4a</a></li>
-            <li><a href="07 Tale Of A Whale.m4a">07 Tale Of A Whale.m4a</a></li>
-            <li><a href="08 Whistling Billy.m4a">08 Whistling Billy.m4a</a></li>
-            <li><a href="09 Jewels Of The Sea.m4a">09 Jewels Of The Sea.m4a</a></li>
-            <li><a href="10 Sixteen Pence.m4a">10 Sixteen Pence.m4a</a></li>
-            <li><a href="11 Leather & Pine.m4a">11 Leather & Pine.m4a</a></li>
-            <li><a href="12 British Mariachi.m4a">12 British Mariachi.m4a</a></li>
-          </ul>
-        </body>
-    </article>
+<head>
+    <script>
+        document.addEventListener('click', evt => {
+            const mic = evt.target;
+            const tag = mic.dataset.item;
+            const lyr = document.getElementById(tag);
+            const lyrpan = document.getElementById('lyrics');
+            const mics = document.querySelectorAll('.mic');
+            const lyrs = document.querySelectorAll('.lyrics');
+            lyrs.forEach(l => l.classList.remove('active'));
+            if (mic.classList.contains('active')) {
+                lyrpan.classList.remove('active');
+                mic.classList.remove('active');
+                return;
+            }
+            mics.forEach(m => m.classList.remove('active'));
+            mic.classList.toggle('active');
+            lyrpan.classList.add('active');
+            lyr.classList.add('active');
+        })
+    </script>
+    <style>
+        #layout {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+        }
+
+        section {
+            width: 50%;
+        }
+
+        .mic {
+            display: inline;
+            border: 1px solid gray;
+            padding: 1px;
+            background-color: lightgray;
+            margin: 1px;
+        }
+
+        .mic.active {
+            background-color: white;
+        }
+
+        #lyrics,
+        .lyrics {
+            display: none
+        }
+
+        #lyrics.active,
+        .lyrics.active {
+            display: block
+        }
+
+        .chorus {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layout">
+        <section id="songs">
+            <article>
+                <h2>Invasion of Piracy</h3>
+                    <ul>
+                        <li>
+                            <div class="mic" data-item="inv-tor">🎤</div>
+                            <a href="01 Music of Tortuga.m4a">
+                                01 Music of Tortuga.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-glo">🎤</div>
+                            <a href="02 To Glory We Steer.m4a">
+                                02 To Glory We Steer.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-rov">🎤</div>
+                            <a href="03 Irish Rover.m4a">
+                                03 Irish Rover.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-cru">🎤</div>
+                            <a href="04 Cruiscan Lan.m4a">
+                                04 Cruiscan Lan.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-par">🎤</div>
+                            <a href="05 Parson of the Pub.m4a">
+                                05 Parson of the Pub.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-cut">🎤</div>
+                            <a href="06 Cutthroat Life.m4a">
+                                06 Cutthroat Life.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-sam">🎤</div>
+                            <a href="07 Samhain Sun.m4a">
+                                07 Samhain Sun.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-mul">🎤</div>
+                            <a href="08 Mulcahey's Pub.m4a">
+                                08 Mulcahey's Pub.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-lad">🎤</div>
+                            <a href="09 Dark Lady.m4a">
+                                09 Dark Lady.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-sai">🎤</div>
+                            <a href="10 Sailorman's Way.m4a">
+                                10 Sailorman's Way.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-ned">🎤</div>
+                            <a href="11 Ned the Bard.m4a">
+                                11 Ned the Bard.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="inv-nov">🎤</div>
+                            <a href="12 Parting Glass _ Nova Scotia.m4a">
+                                12 Parting Glass / Nova Scotia.m4a
+                            </a>
+                        </li>
+                    </ul>
+            </article>
+            <article>
+                <h2>Beat to Quarters!</h3>
+                    <ul>
+                        <li>
+                            <div class="mic" data-item="qar-joe">🎤</div>
+                            <a href="01 Haul Away Joe!.m4a">
+                                01 Haul Away Joe!.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-fil">🎤</div>
+                            <a href="02 Filler Up.m4a">
+                                02 Filler Up.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-fol">🎤</div>
+                            <a href="03 Follow The Money.m4a">
+                                03 Follow The Money.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-lep">🎤</div>
+                            <a href="04 Leprechaun's Gold.m4a">
+                                04 Leprechaun's Gold.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-yar">🎤</div>
+                            <a href="05 Cruising Round Yarmouth.m4a">
+                                05 Cruising Round Yarmouth.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-die">🎤</div>
+                            <a href="06 Sailor's Diet.m4a">
+                                06 Sailor's Diet.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-wha">🎤</div>
+                            <a href="07 Tale Of A Whale.m4a">
+                                07 Tale Of A Whale.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-bil">🎤</div>
+                            <a href="08 Whistling Billy.m4a">
+                                08 Whistling Billy.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-jew">🎤</div>
+                            <a href="09 Jewels Of The Sea.m4a">
+                                09 Jewels Of The Sea.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-six">🎤</div>
+                            <a href="10 Sixteen Pence.m4a">
+                                10 Sixteen Pence.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-lea">🎤</div>
+                            <a href="11 Leather & Pine.m4a">11 Leather &
+                                Pine.m4a
+                            </a>
+                        </li>
+                        <li>
+                            <div class="mic" data-item="qar-mar">🎤</div>
+                            <a href="12 British Mariachi.m4a">12 British
+                                Mariachi.m4a
+                            </a>
+                        </li>
+                    </ul>
+            </article>
+        </section>
+        <section id="lyrics">
+            <h2>Lyrics</h2>
+            <article id="inv-tor" class="lyrics">
+                <h2>Music of Tortuga</h2>
+                <p>On a cold gloomy morning came upon we a port <br>our spirits were low and our supplies were short.
+                    <br>Storm had just ended leaving need for repair <br>when we heard the sweet music drifting up
+                    <br>through the air.
+                <p>Well our hearts warmed with hope when we saw the dim light <br>that shown through the fog like the
+                    <br>stars in the night <br>Then came a call from the crow's nest above, <br>"Me lads this be the
+                    port
+                    <br>Tortuga!"
+                <p>Now a ship of the fleet would be not welcome here <br>so we cut some dark canvas we'd stowed with the
+                    <br>gear <br>and with some white washing that we had aboard <br>we painted a visage of skull and
+                    crossed
+                    <br>sword
+                <p>When the gangplank hit dock we let out a cheer <br>our thoughts turned to women to food and to beer.
+                    <br>We ran for the taverns like children to faire <br>"Me lads welcome the port Tortuga!"
+                <p class="chorus">We ate, we drank, we danced and sang <br>me boys sing "Tu-ra-lu-ra" <br>The tankards
+                    <br>clanked and the headboards banged <br>to the music of Tortuga
+                <p>And so by the time that the sun it went down <br>we was all good and drunk and were stumbling around.
+                    <br>Wide swung the door and our captain walked in <br>he looked at us all and he said with a grin,
+                <p>"Such a sorry lot I never did see <br>you call yourselves sailors you're no good to me" <br>"Well sir
+                    <br>me captain this port it ain't Rome <br>No sir this be the port Tortuga!
+                <p class="chorus">We ate we drank we danced and sang <br>me boys sing "Tu-ra-lu-ra" <br>The tankards
+                    <br>clanked and the headboards banged <br>to the music of Tortuga.
+                <p>And so for a fortnight we worked all day long <br>and spent our nights drinking with women and song.
+                    <br>Traded some cargo for rigging and nails <br>and cut some clean canvas to patch up our sails
+                <p>On the night that we set out for the fleet of our queen <br>and every night since when I lay down to
+                    <br>dream <br>out in the darkness I swear I can hear <br>that sweet music of Tortuga.
+                <p class="chorus">We ate we drank we danced and sang <br>me boys sing "Tu-ra-lu-ra" <br>The tankards
+                    <br>clanked and the headboards banged <br>to the music of Tortuga
+                </p>
+            </article>
+            <article id="inv-glo" class="lyrics">
+                <p>When the hands were raised by the morning light
+                    <br>With a "deck there starboard enemy in sight"
+                    <br>By the Devil's eye they're in for a fight
+                    <br>So hoist our colors true...
+
+                <p>Sailing hard and fast on a downward tack
+                    <br>Bearing 16 guns 'neath a flag of black
+                    <br>Boys now there ain't no looking back
+                    <br>Upon the sea so blue...
+
+                <p>True, the sea was calm and the wind was fair
+                    <br>When the orders came "fire as you bear!"
+                    <br>To cripple the bitch and collect our share
+                    <br>For serving on the crew...
+
+                <p class="chorus">To Glory We Steer, Our home is on the sea.
+                    <br>On the fearsome Drunken Dragon sails our Devilish company.
+                    <br>To Glory We Steer, to die or to be free.
+                    <br>To Glory We Steer...
+
+                <p>With the first volley like a toppling crown
+                    <br>Her whole main yard came crashing down
+                    <br>Like an eager harlot's evening gown
+                    <br>And her mizzen split in two...
+
+                <p>Then through the smoke came her reply
+                    <br>A ragged tattoo shook the pale blue sky
+                    "helm a lee" came the bosun's cry
+                    "May the Dragon get her due!"
+
+                <p>We came about with cannons bared
+                    <br>Long orange tongues licked at the air
+                    <br>And the swivels caught them unaware
+                    <br>As the grape shot ripped right through...
+
+                <p class="chorus">To Glory We Steer, Our home is on the sea.
+                    <br>On the fearsome Drunken Dragon sails our Devilish company.
+                    <br>To Glory We Steer, to die or to be free.
+                    <br>To Glory We Steer...
+
+                <p>Our Captain raised his flashing sword
+                    <br>And the call came down "prepare to board!"
+                    <br>The crew at arms reared back and roared
+                    "The Dragon's come for you!"
+
+                <p>On the quarter deck begun the fight
+                    <br>With pistol fire and cutlass might
+                    <br>And their Captain's face went lily white
+                    <br>When our master ran him through...
+
+                <p>With the crew dispatched, we checked the hold
+                    <br>Found sugar, rum, and Spanish gold
+                    <br>A handsome fare for a venture bold
+                    <br>And the Dragon gets her due...
+
+                <p class="chorus">To Glory We Steer, Our home is on the sea.
+                    <br>On the fearsome Drunken Dragon sails our Devilish company.
+                    <br>To Glory We Steer, to die or to be free.
+                    <br>To Glory We Steer...
+            </article>
+            <article id="inv-rov" class="lyrics">
+                <p>In the year of our lord eighteen hundred and six
+                    <br>we set sail from the cold quay of Cork (cold Cork!)
+                    <br>we were sailing away with a cargo of bricks
+                    <br>for the grand city hall in New York
+                    <br>we'd an elegant craft she was rigged fore-and-aft
+                    <br>and oh how the trade winds drove her
+                    <br>she had twenty three masts and she 'stood several blasts
+                    <br>And they called her the Irish Rover
+
+                <p>We had one million bags of our best sligo rags
+                    <br>we had two million barrels of stone
+                    <br>we had three million sides of old blind horse's hides
+                    <br>we had four million barrels of bone
+                    <br>we had five million hogs and six million dogs
+                    <br>and seven million barrels of porter
+                    <br>we had eight million bales of old nanny goats tails
+                    <br>in the hold of the Irish Rover
+
+                <p>There was Barney McGee from the banks of the Lee
+                    <br>there was Hogan from County Tyrone
+                    <br>There was Dudley McGurk who was scared stiff of work
+                    <br>and our chaplin from Meath called Malone
+                    <br>there was Slugger O' Tool who was drunk as a rule
+                    <br>and Fightin' Bill Tracy from Dover
+                    <br>and your Man Mick McCann from the banks of the Bann
+                    <br>was the skipper of the Irish Rover
+
+                <p>We had sailed seven years when the measles broke out
+                    <br>and our ship lost her way in a fog (great fog!)
+                    <br>and that whale of a crew was reduced down to two
+                    <br>just meself and the captain's old dog (big dog!)
+                    <br>well the ship struck a rock, oh lord what a shock
+                    <br>and nearley tumbled over
+                    <br>turned nine times around,
+                    <br>and the poor old dog was drowned...
+                    <br>I'm the last of the Irish Rover!
+            </article>
+            <article id="inv-cru" class="lyrics">
+                <p>Let the farmer praise his grounds, let the huntsman praise his hounds,
+                    <br>Let the shepherd praise his dewy scented lambs;
+                    <br>oh but I, more wise than they, spend each happy night and day
+                    <br>With my darlin' little cruiscin lan, lan, lan
+                    <br>Oh, my darlin little cruiscin lan.
+
+                <p class="chorus">Gra-ma-chree ma-cruiscin, slainte geal mavoorneen
+                    <br>Gra-machree ma cruiscin lan lan lan,
+                    <br>Oh! gramachree ma cruiscan lan
+
+                <p>Immortal and divine, great Bacchus, god of wine
+                    <br>Create me by adoption your own son.
+                    <br>In the hopes that you'll comply, that my glass shall ne'er run dry
+                    <br>Nor my darlin' little cruiscan lan lan lan
+                    <br>My darlin' little cruiscan lan
+
+                <p class="chorus">Gra-ma-chree ma-cruiscin, slainte geal mavoorneen
+                    <br>Gra-machree ma cruiscin lan lan lan,
+                    <br>Oh! gramachree ma cruiscan lan
+
+                <p>And when cruel Death appears, in a few but happy years,
+                    <br>And says "why don't you come along with me",
+                    <br>I'll say, "Begone, you knave! For King Bacchus gave me leave"
+                    <br>To fill another cruiscan lan lan lan
+                    <br>To take another cruiscan lan
+
+                <p class="chorus">Gra-ma-chree ma-cruiscin, slainte geal mavoorneen
+                    <br>Gra-machree ma cruiscin lan lan lan,
+                    <br>Oh! gramachree ma cruiscan lan
+
+                <p>So fill our glasses high, let's not part with lips so dry
+                    <br>although the lark proclaims it is the dawn
+                    <br>and since we can't remain may we shortly meet again
+                    <br>To fill another cruiscan lan lan lan
+                    <br>to share another cruscan lan
+
+                <p class="chorus">Gra-ma-chree ma-cruiscin, slainte geal mavoorneen
+                    <br>Gra-machree ma cruiscin lan lan lan,
+                    <br>Oh! gramachree ma cruiscan lan
+            </article>
+            <article id="inv-par" class="lyrics">
+                <p>I was born in the galley of a cargo ship
+                    <br>that they called the Southern Star
+                    <br>I was raised on the reading of the word of God
+                    <br>counting cards and tending bar.
+
+                <p>The mast was my steeple, the poop deck my pew,
+                    <br>my bishop was a mouse.
+                    <br>Scurvy and starvation were my congregation
+                    <br>til I bought a public house.
+
+                <p class="chorus">Now it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you'll never be a failure
+                    <br>It's easy to be the Parson of the Pub
+                    <br>When you grew up preaching to the sailors.
+
+                <p>My daddy was an English protestant
+                    <br>My mother was a Scot.
+                    <br>I thought I would wear the pants in my clan
+                    <br>but this Kilt was all I got.
+
+                <p>They asked me which block was my favorite flock
+                    <br>ever since I was a nipper.
+                    <br>Puritans, I confess, will make a smaller mess,
+                    <br>but Catholics are much better tippers.
+
+                <p class="chorus">And it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you'll never be a loser
+                    <br>It's easy to be the Parson of the Pub
+                    <br>Cause a beggar cannot be a chooser.
+
+                <p>The stated position of the Inquisition
+                    <br>is I should go underground.
+                    <br>As long as I'm gone before they flame on,
+                    <br>I'll be safe and sound.
+
+                <p>My religious views may not be big news
+                    <br>but still they get people thinkin'.
+                    <br>Cause mercy is mercy, the word is the truth,
+                    <br>and everyone's blessed when you're drinkin!
+
+                <p class="chorus">And it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you never can deny it.
+                    <br>It's easy to be the Parson of the Pub
+                    <br>The hard part is keepin' it quiet.
+
+                <p>Now I don't get nervous when folks ask for service
+                    <br>I just keep it straight in my head:
+                    <br>You don't read Last Rites to the bride and the groom
+                    <br>and you don't baptize someone who's dead.
+
+                <p>A man came to christen, my holy water's missin'
+                    <br>and my wellspring ran unclear,
+                    <br>but he was a sinner in need of salvation
+                    <br>so I baptized him with beer.
+
+                <p class="chorus">And it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you'll never have to fear it.
+                    <br>It's easy to be the Parson of the Pub
+                    <br>Cause everybody's in the spirit!
+
+                <p>When I first encountered Captain Micky Slinger
+                    <br>he showed me his pistol and sword.
+                    <br>So he keeps me in silver and spice from the East
+                    <br>and I keeps him right with the Lord.
+
+                <p>Cause two Charlie Pirates were gambling one night
+                    <br>with our drunken Irish Bard,
+                    <br>So I fed them mead and whiskey and beer
+                    <br>and fed Mick some extra cards.
+
+                <p class="chorus">And it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you'll never be decoded
+                    <br>It's easy to be the Parson of the Pub
+                    <br>Cause the patrons aren't the only thing that's loaded!
+
+                <p>So love your fellow man. That is the holy plan
+                    <br>and the recipe for great fun.
+                    <br>So let's raise a toast to the Holy Ghost
+                    <br>to the Father and to the Son.
+
+                <p>And tonight we'll cavort with the girls of the Court
+                    <br>and we'll drink with our bretheren.
+                    <br>So let's finish Mass and fill up your glass
+                    <br>and somebody say A-Men! (Amen!)
+
+                <p class="chorus">And it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you'll never be a liar
+                    <br>It's easy to be the Parson of the Pub
+                    <br>Cause you're always preaching to the Choir!
+
+                <p>And it's Ho-Heave-Ho and ya Raise a glass
+                    <br>And you'll never be a liar
+                    <br>It's easy to be the Parson of the Pub
+                    <br>Cause you're always preaching to the Choir!
+            </article>
+            <article id="inv-cut" class="lyrics">
+                <p>
+            </article>
+            <article id="inv-sam" class="lyrics">
+                <p>
+            </article>
+            <article id="inv-mul" class="lyrics">
+                <p>
+            </article>
+            <article id="inv-lad" class="lyrics">
+                <p>
+            </article>
+            <article id="inv-sai" class="lyrics">
+                <p>
+            </article>
+            <article id="inv-ned" class="lyrics">
+                <p>
+            </article>
+            <article id="inv-nov" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-joe" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-fil" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-fol" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-lep" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-yar" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-die" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-wha" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-bil" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-jew" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-six" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-lea" class="lyrics">
+                <p>
+            </article>
+            <article id="qar-mar" class="lyrics">
+                <p>
+            </article>
+        </section>
+    </div>
+</body>
+
 </html>
